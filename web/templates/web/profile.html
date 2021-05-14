@@ -1,0 +1,237 @@
+
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block title %}Sarathi | Profile{% endblock title %}
+
+{% block content %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'web:dashboard' %}">Home</a></li>
+              <li class="breadcrumb-item active">User Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="{% static 'img/dp.jpg' %}"
+                       alt="User profile picture">
+                </div>
+
+                <h3 class="profile-username text-center">
+                    {{ user.first_name }} {{ user.last_name }}
+                </h3>
+
+                <p class="text-muted text-center">{{ user.email }}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Followers</b> <a class="float-right">1,322</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Following</b> <a class="float-right">543</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Friends</b> <a class="float-right">13,287</a>
+                  </li>
+                </ul>
+
+                <a href="#" class="btn btn-primary btn-block"><b>Progress</b></a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#personal" data-toggle="tab">Personal Info</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#address" data-toggle="tab">Address Info</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#contact" data-toggle="tab">Contact Info</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="personal">
+
+                      <div class="row">
+                          <div class="col-md-6">
+                              <label>First Name</label>
+                          </div>
+                          <div class="col-md-6">
+                              <label>Last Name</label>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ user.first_name }}" disabled>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ user.last_name }}" disabled>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6" style="margin-top: 20px">
+                              <label>Gender</label>
+                          </div>
+                          <div class="col-md-6" style="margin-top: 20px">
+                              <label>Date of Birth</label>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.gender }}" disabled>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.date_of_birth }}" disabled>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6" style="margin-top: 20px">
+                              <label>Marital Status</label>
+                          </div>
+                          <div class="col-md-6" style="margin-top: 20px">
+                              <label>Blood Group</label>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.marital_status }}" disabled>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.blood_group }}" disabled>
+                          </div>
+                      </div>
+
+                  </div>
+                  <!-- /.tab-pane -->
+
+
+                  <div class="tab-pane" id="address">
+                    <!-- Post -->
+                    <div class="row">
+                          <div class="col-md-6">
+                              <label>Country</label>
+                          </div>
+                          <div class="col-md-6">
+                              <label>State</label>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.country }}" disabled>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.state }}" disabled>
+                          </div>
+                          <div class="col-md-6" style="margin-top: 20px">
+                              <label>District</label>
+                          </div>
+                          <div class="col-md-6" style="margin-top: 20px">
+                              <label>City</label>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.district }}" disabled>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.city }}" disabled>
+                          </div>
+                      </div>
+
+
+                  </div>
+                  <!-- /.tab-pane -->
+
+
+                  <div class="tab-pane" id="contact">
+                    <!-- Post -->
+                    <div class="row">
+                          <div class="col-md-6">
+                              <label>Contact Number</label>
+                          </div>
+                          <div class="col-md-6">
+                              <label>Email</label>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ person.phone }}" disabled>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" placeholder="{{ user.email }}" disabled>
+                          </div>
+                      </div>
+
+
+                  </div>
+                  <!-- /.tab-pane -->
+
+
+                  <div class="tab-pane" id="settings">
+                    <form class="form-horizontal" id="resetBtn" style="display: none">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-form-label">Do you really want to change password?</label>
+                      </div>
+                        <a class="btn btn-warning" href="{% url 'web:password-change' %}">Reset</a>
+                        <button onclick="resetPassword()" class="btn btn-secondary">Cancel</button>
+                    </form>
+                      <div class="form-group row">
+                        <div class="col-sm-10">
+                          <button onclick="resetPassword()" class="btn btn-primary" id="resetBtnMain">Reset Password</button>
+                        </div>
+                      </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{% endblock content %}
+
+{% block js %}
+<!-- AdminLTE App -->
+{#<script src="{% static 'panel/dist/js/adminlte.min.js' %}"></script>#}
+
+    <!-- Page Level Script -->
+    <script>
+    function resetPassword(){
+        var x = document.getElementById("resetBtn");
+        var y = document.getElementById("resetBtnMain");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none"
+        } else {
+            x.style.display = "none";
+            y.style.display = "block"
+        }
+    }
+    </script>
+
+{% endblock js %}
